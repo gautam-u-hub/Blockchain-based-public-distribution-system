@@ -6,8 +6,6 @@ import { Typography } from "@material-ui/core";
 import { useAlert } from "react-alert";
 import { ethers } from "ethers";
 
-
-
 import axios from "axios";
 import "./payment.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
@@ -26,6 +24,7 @@ const Payment = ({ history }) => {
 
   useEffect(() => {
     async function connectEthereum() {
+      console.log(window.ethereum);
       if (window.ethereum) {
         const ethereumProvider = new ethers.providers.Web3Provider(
           window.ethereum,
@@ -35,21 +34,22 @@ const Payment = ({ history }) => {
         setProvider(ethereumProvider);
         setSigner(ethereumSigner);
         setAccount(accounts[0]);
-          const { data } = await axios.post("/api/v1/check", {
-            acc: accounts[0],
-          });
+        const { data } = await axios.post("/api/v1/check", {
+          acc: accounts[0],
+        });
 
         console.log(data);
         if (user.MetamaskAddress !== accounts[0]) {
           console.log(user.MetamaskAddress);
-          alert.error("Please connect to the registered wallet address")
+          alert.error("Please connect to the registered wallet address");
           history.push("/order/confirm");
         }
-        if (data.data<=0) {
-          alert.error("The connected wallet address does not have the ration card nft");
+        if (data.data <= 0) {
+          alert.error(
+            "The connected wallet address does not have the ration card nft",
+          );
           history.push("/order/confirm");
         }
-        
       } else {
         console.log(
           "MetaMask not detected. Please install MetaMask or use an Ethereum browser.",
@@ -61,10 +61,14 @@ const Payment = ({ history }) => {
   }, []);
 
   const handleSendTransaction = async () => {
+    setToAddress("0x6E62F8B32C85D89c50Ed6b3e17B56afc504d16E8");
+    setAmount(order.totalPrice);
     if (provider && signer && account && toAddress && amount) {
-      const weiAmount = ethers.utils.parseEther(amount);
+      console.log("hi");
+      const weiAmount = ethers.utils.parseEther(String(order.totalPrice));
+      
       const tx = {
-        to: toAddress,
+        to: "0x6E62F8B32C85D89c50Ed6b3e17B56afc504d16E8",
         value: weiAmount,
       };
 
@@ -72,6 +76,7 @@ const Payment = ({ history }) => {
         const txResponse = await signer.sendTransaction(tx);
         await txResponse.wait();
         setTransactionHash(txResponse.hash);
+        dispatch(createOrder(order));
       } catch (error) {
         console.error("Transaction Error:", error);
       }
@@ -98,8 +103,6 @@ const Payment = ({ history }) => {
     totalPrice: orderInfo.totalPrice,
   };
 
-
-
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -111,23 +114,23 @@ const Payment = ({ history }) => {
     <Fragment>
       <MetaData title="Payment" />
       <CheckoutSteps activeStep={2} />
-      <div>
+      <div className="Eth-center">
         <h1>Ethereum Transaction Page</h1>
         {account && <p>Connected Account: {account}</p>}
         <input
           type="text"
           placeholder="To Address"
-          value={toAddress}
+          value={"0x6E62F8B32C85D89c50Ed6b3e17B56afc504d16E8"}
           onChange={(e) => setToAddress(e.target.value)}
         />
         <input
           type="number"
           placeholder="Amount (ETH)"
-          value={amount}
+          value={order.totalPrice}
           onChange={(e) => setAmount(e.target.value)}
         />
         <button onClick={handleSendTransaction}>Send Transaction</button>
-        {transactionHash && <p>Transaction Hash: {transactionHash}</p>}
+        {transactionHash && <p>Transaction Completed With Hash: {transactionHash} <br></br> You can now close this window</p>}
       </div>
     </Fragment>
   );

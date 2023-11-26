@@ -12,7 +12,9 @@ const {
   getSingleUser,
   updateUserRole,
   deleteUser,
-  checkCurrentAccountNft
+  checkCurrentAccountNft,
+  requestNFT,
+  allNFTRequests
 } = require("../controllers/userController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
@@ -35,6 +37,10 @@ router.route("/password/update").put(isAuthenticatedUser, updatePassword);
 router.route("/me/update").put(isAuthenticatedUser, updateProfile);
 
 router.route("/check").post(checkCurrentAccountNft);
+
+router.route("/requestNFT").post(requestNFT);
+
+router.route("/nftRequests").get(allNFTRequests);
 
 router
   .route("/admin/users")

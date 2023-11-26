@@ -1,5 +1,6 @@
 import React from "react";
 import "./sidebar.css";
+import logo from "../../images/logo.jpg";
 import { Link } from "react-router-dom";
 import { TreeView, TreeItem } from "@material-ui/lab";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -9,40 +10,26 @@ import ImportExportIcon from "@material-ui/icons/ImportExport";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import PeopleIcon from "@material-ui/icons/People";
-import RateReviewIcon from "@material-ui/icons/RateReview";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <Link to="/">
-      </Link>
-      <div>
-        <br />
-        <br />
-        <br />
-        <br />
-      </div>
+      <Link to="/"></Link>
+      <br></br>
       <Link to="/admin/dashboard">
         <p>
           <DashboardIcon /> Dashboard
         </p>
       </Link>
-      <Link>
-        <TreeView
-          defaultCollapseIcon={<ExpandMoreIcon />}
-          defaultExpandIcon={<ImportExportIcon />}
-        >
-          <TreeItem nodeId="1" label="Products">
-            <Link to="/admin/products">
-              <TreeItem nodeId="2" label="All" icon={<PostAddIcon />} />
-            </Link>
 
-            <Link to="/admin/product">
-              <TreeItem nodeId="3" label="Create" icon={<AddIcon />} />
-            </Link>
-          </TreeItem>
-        </TreeView>
+      <Link to="/admin/products">
+        <PostAddIcon /> All Products
       </Link>
+
+      <Link to="/admin/product">
+        <AddIcon /> Create Product
+      </Link>
+
       <Link to="/admin/orders">
         <p>
           <ListAltIcon />
@@ -54,10 +41,9 @@ const Sidebar = () => {
           <PeopleIcon /> Users
         </p>
       </Link>
-      <Link to="/admin/reviews">
+      <Link to="/admin/usersRequestNFT">
         <p>
-          <RateReviewIcon />
-          Reviews
+          <PeopleIcon /> Approve NFT Requests
         </p>
       </Link>
     </div>

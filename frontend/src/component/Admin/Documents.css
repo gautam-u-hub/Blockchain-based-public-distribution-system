@@ -1,0 +1,30 @@
+.ImageDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.CarouselContainer {
+  max-width: 800px; /* Adjust the max-width as needed */
+  width: 100%;
+}
+
+.CarouselImage {
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* Adjust the max-height as needed */
+  object-fit: cover;
+}
+
+.detailsBlock-1 {
+  padding: 20px;
+  background-color: #fff; /* Set your desired background color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.documents-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 100px; /* Adjust as needed */
+  text-align: center;
+}

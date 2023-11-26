@@ -42,6 +42,9 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
+import RequestNft from "./component/User/RequestNft.js";
+import UserRequestNFT from "./component/Admin/UsersRequestNFT.jsx";
+import Documents from "./component/Admin/Documents.jsx";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -74,7 +77,7 @@ function App() {
 
       {isAuthenticated && <UserOptions user={user} />}
 
-         <ProtectedRoute exact path="/process/payment" component={Payment} />
+      <ProtectedRoute exact path="/process/payment" component={Payment} />
 
       <Switch>
         <Route exact path="/" component={Home} />
@@ -85,8 +88,7 @@ function App() {
         <Route exact path="/search" component={Search} />
 
         <Route exact path="/contact" component={Contact} />
-
-        <Route exact path="/about" component={About} />
+        <Route exact path="/requestNft" component={RequestNft} />
 
         <ProtectedRoute exact path="/account" component={Profile} />
 
@@ -147,6 +149,12 @@ function App() {
           isAdmin={true}
           component={OrderList}
         />
+        <ProtectedRoute
+          exact
+          path="/admin/requests/:id"
+          isAdmin={true}
+          component={Documents}
+        />
 
         <ProtectedRoute
           exact
@@ -159,6 +167,13 @@ function App() {
           path="/admin/users"
           isAdmin={true}
           component={UsersList}
+        />
+
+        <ProtectedRoute
+          exact
+          path="/admin/usersRequestNFT"
+          isAdmin={true}
+          component={UserRequestNFT}
         />
 
         <ProtectedRoute

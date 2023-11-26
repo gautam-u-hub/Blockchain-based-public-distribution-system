@@ -6,16 +6,11 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer id="footer">
-     
-
       <div className="midFooter">
-        <h1>Get Your Deals</h1>
-        <p>High Quality is our first priority</p>
+        <h1>Blockchain Based Public Distribution System</h1>
 
         <p>Copyrights 2023</p>
       </div>
-
-      
     </footer>
   );
 };

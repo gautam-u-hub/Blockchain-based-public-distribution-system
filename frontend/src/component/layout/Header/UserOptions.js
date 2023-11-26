@@ -26,7 +26,7 @@ const UserOptions = ({ user }) => {
     {
       icon: (
         <ShoppingCartIcon
-          style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
+          style={{ color: cartItems.length > 0 ? "#f99333" : "unset" }}
         />
       ),
       name: `Cart(${cartItems.length})`,
@@ -75,7 +75,7 @@ const UserOptions = ({ user }) => {
         icon={
           <img
             className="speedDialIcon"
-            src={user.avatar ? user.avatar.url : "/Profile.png"}
+            src={user.avatar.url ? user.avatar.url : "/Profile.png"}
             alt="Profile"
           />
         }

@@ -8,17 +8,16 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
   const {
     shippingInfo,
     orderItems,
-    paymentInfo,
     itemsPrice,
     taxPrice,
     shippingPrice,
     totalPrice,
   } = req.body;
 
+
   const order = await Order.create({
     shippingInfo,
     orderItems,
-    paymentInfo,
     itemsPrice,
     taxPrice,
     shippingPrice,
@@ -26,6 +25,9 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     paidAt: Date.now(),
     user: req.user._id,
   });
+
+  //console.log(order);
+
 
   res.status(201).json({
     success: true,
@@ -107,10 +109,11 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
 });
 
 async function updateStock(id, quantity) {
+
   const product = await Product.findById(id);
 
   product.Stock -= quantity;
-
+  console.log(product+" in update stock ")
   await product.save({ validateBeforeSave: false });
 }
 

@@ -113,7 +113,6 @@ const NewProduct = ({ history }) => {
             <div>
               <AttachMoneyIcon />
               <input
-                type="number"
                 placeholder="Price"
                 required
                 onChange={(e) => setPrice(e.target.value)}
@@ -132,17 +131,7 @@ const NewProduct = ({ history }) => {
               ></textarea>
             </div>
 
-            <div>
-              <AccountTreeIcon />
-              <select onChange={(e) => setCategory(e.target.value)}>
-                <option value="">Choose Category</option>
-                {categories.map((cate) => (
-                  <option key={cate} value={cate}>
-                    {cate}
-                  </option>
-                ))}
-              </select>
-            </div>
+            
 
             <div>
               <StorageIcon />

@@ -31,8 +31,8 @@
   justify-content: center;
 }
 .dashboardSummary > div > p {
-  background-color: rgba(70, 117, 218, 0.932);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.932);
+  color: rgb(14, 9, 9);
   font: 300 1.3rem "Roboto";
   text-align: center;
   padding: 1.5rem;
@@ -40,16 +40,16 @@
   margin: 0 2rem;
 }
 .dashboardSummaryBox2 > a {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font: 300 2rem "Roboto";
   text-align: center;
-  background-color: rgb(255, 233, 174);
+  background-color: rgb(49, 132, 255);
   text-decoration: none;
   padding: 1.5rem;
   width: 10vmax;
   height: 10vmax;
   margin: 2rem;
-  border-radius: 100%;
+  /* border-radius: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,12 +57,12 @@
 }
 
 .dashboardSummaryBox2 > a:first-child {
-  background-color: rgb(255, 110, 110);
+  background-color: rgb(49, 132, 255);
   color: rgb(255, 255, 255);
 }
 
 .dashboardSummaryBox2 > a:last-child {
-  background-color: rgb(51, 51, 51);
+  background-color: rgb(49, 132, 255);
   color: rgb(255, 255, 255);
 }
 

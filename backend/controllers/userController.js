@@ -6,6 +6,7 @@ const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const cloudinary = require("cloudinary");
 const axios = require('axios');
+const Nft = require('../models/nftRequests');
 
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
@@ -335,3 +336,64 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     message: "User Deleted Successfully",
   });
 });
+
+
+
+exports.requestNFT = catchAsyncErrors(async (req, res, next) => {
+  let images = [];
+  
+  if (typeof req.body.images === "string") {
+    images.push(req.body.images);
+  } else {
+    images = req.body.images;
+  }
+
+  const imagesLinks = [];
+
+  for (let i = 0; i < images.length; i++) {
+    const result = await cloudinary.v2.uploader.upload(images[i], {
+      folder: "products",
+    });
+
+    imagesLinks.push({
+      public_id: result.public_id,
+      url: result.secure_url,
+    });
+  }
+
+  req.body.images = imagesLinks;
+  console.log(req.body);
+  try {
+    const nft = await Nft.create(req.body);
+    console.log(nft);
+    
+  res.status(201).json({
+    success: true,
+    nft,
+  });
+  }
+  catch(e) {
+    console.log(e);
+  }
+
+
+  
+
+});
+
+
+exports.allNFTRequests = catchAsyncErrors(async (req, res, next) => {
+ 
+  try {
+    const nft = await Nft.find({});
+    console.log(nft);
+
+    res.status(201).json({
+      success: true,
+      nft,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+});
+

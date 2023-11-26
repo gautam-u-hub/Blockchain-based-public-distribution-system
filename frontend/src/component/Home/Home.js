@@ -29,7 +29,7 @@ const Home = () => {
           <MetaData title="ECOMMERCE" />
 
           <div className="banner">
-            <p>Welcome to Blockchain Based Ration System</p>
+            <p>Welcome to Blockchain Based Public Distribution System</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
 
             <a href="#container">
