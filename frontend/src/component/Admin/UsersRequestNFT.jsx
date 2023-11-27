@@ -85,7 +85,7 @@ const UserRequestNFT = ({ history }) => {
     // },
     {
       field: "MetamaskAddress",
-      flex: 0.5,
+      flex: 1,
       headerName: "Metamask Address",
       minWidth: 150,
       sortable: false,

@@ -138,7 +138,6 @@ const UpdateProduct = ({ history, match }) => {
             <h1>Update Product</h1>
 
             <div>
-              <SpellcheckIcon />
               <input
                 type="text"
                 placeholder="Product Name"
@@ -148,7 +147,6 @@ const UpdateProduct = ({ history, match }) => {
               />
             </div>
             <div>
-              <AttachMoneyIcon />
               <input
                 type="number"
                 placeholder="Price"
@@ -159,7 +157,6 @@ const UpdateProduct = ({ history, match }) => {
             </div>
 
             <div>
-              <DescriptionIcon />
 
               <textarea
                 placeholder="Product Description"
@@ -173,7 +170,6 @@ const UpdateProduct = ({ history, match }) => {
             
 
             <div>
-              <StorageIcon />
               <input
                 type="number"
                 placeholder="Stock"

@@ -116,7 +116,7 @@ const Payment = ({ history }) => {
       <CheckoutSteps activeStep={2} />
       <div className="Eth-center">
         <h1>Ethereum Transaction Page</h1>
-        {account && <p>Connected Account: {account}</p>}
+        {account && <p>Connected Account: {account} <br></br>  Payment to be done to the following authorized personnel's address:-</p>}
         <input
           type="text"
           placeholder="To Address"
@@ -130,7 +130,7 @@ const Payment = ({ history }) => {
           onChange={(e) => setAmount(e.target.value)}
         />
         <button onClick={handleSendTransaction}>Send Transaction</button>
-        {transactionHash && <p>Transaction Completed With Hash: {transactionHash} <br></br> You can now close this window</p>}
+        {transactionHash && <p>Transaction Completed With Hash: {transactionHash} <br></br> You can now close this window and check your orders for latest updates</p>}
       </div>
     </Fragment>
   );

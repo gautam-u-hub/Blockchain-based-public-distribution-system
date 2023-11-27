@@ -29,8 +29,8 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   const data = await resa.json();
   console.log(data.numNFTs.userNFTs+" hi");
 
-  if (data.numNFTs <= 0) {
-    return next(new ErrorHander("The address doesn't have the ration card nft", 401)); 
+  if (data.numNFTs.userNFTs <= 0) {
+    return next(new ErrorHander("You cannot register as the metamask address you registered with doesn't have the ration card nft", 401)); 
   }
 
   const user = await User.create({
@@ -80,7 +80,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   console.log(data.numNFTs.userNFTs+" hiii");
   if (data.numNFTs.userNFTs <= 0) {
     return next(
-      new ErrorHander("The address doesn't have the ration card nft", 401),
+      new ErrorHander("The registered address doesn't have the ration card nft", 401),
     );
   }
   sendToken(user, 200, res);
