@@ -10,7 +10,7 @@ const options = {
   logoHoverSize: "10px",
   logoHoverColor: "white",
   link1Text: "Home",
-  link2Text: "Products",
+  link2Text: "Commodities",
   link3Text: "Your Profile",
   link4Text: "Request for NFT",
   link1Url: "/",

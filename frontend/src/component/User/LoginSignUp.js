@@ -39,6 +39,7 @@ const LoginSignUp = ({ history, location }) => {
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
+    
   };
 
   const registerSubmit = (e) => {
@@ -52,6 +53,7 @@ const LoginSignUp = ({ history, location }) => {
     myForm.set("MetamaskAddress", MetamaskAddress);
     myForm.set("avatar", avatar);
     dispatch(register(myForm));
+    alert.success("Your NFT is verified")
   };
 
   const registerDataChange = (e) => {
@@ -80,6 +82,7 @@ const LoginSignUp = ({ history, location }) => {
     }
 
     if (isAuthenticated) {
+
       history.push(redirect);
     }
   }, [dispatch, error, alert, history, isAuthenticated, redirect]);

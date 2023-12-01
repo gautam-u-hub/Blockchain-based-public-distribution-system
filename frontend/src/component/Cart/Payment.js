@@ -77,6 +77,7 @@ const Payment = ({ history }) => {
         await txResponse.wait();
         setTransactionHash(txResponse.hash);
         dispatch(createOrder(order));
+        alert.success("Payment Successful");
       } catch (error) {
         console.error("Transaction Error:", error);
       }

@@ -126,7 +126,7 @@ const UpdateProduct = ({ history, match }) => {
 
   return (
     <Fragment>
-      <MetaData title="Create Product" />
+      <MetaData title="Update Commodity" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
@@ -135,7 +135,7 @@ const UpdateProduct = ({ history, match }) => {
             encType="multipart/form-data"
             onSubmit={updateProductSubmitHandler}
           >
-            <h1>Update Product</h1>
+            <h1>Update Commodity</h1>
 
             <div>
               <input
@@ -157,7 +157,6 @@ const UpdateProduct = ({ history, match }) => {
             </div>
 
             <div>
-
               <textarea
                 placeholder="Product Description"
                 value={description}
@@ -166,8 +165,6 @@ const UpdateProduct = ({ history, match }) => {
                 rows="1"
               ></textarea>
             </div>
-
-            
 
             <div>
               <input

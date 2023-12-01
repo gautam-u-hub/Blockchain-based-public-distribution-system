@@ -23,11 +23,11 @@ const Sidebar = () => {
       </Link>
 
       <Link to="/admin/products">
-        <PostAddIcon /> All Products
+        <PostAddIcon /> All Commodities
       </Link>
 
       <Link to="/admin/product">
-        <AddIcon /> Create Product
+        <AddIcon /> Create Commodity
       </Link>
 
       <Link to="/admin/orders">
@@ -43,7 +43,7 @@ const Sidebar = () => {
       </Link>
       <Link to="/admin/usersRequestNFT">
         <p>
-          <PeopleIcon /> Approve NFT Requests
+          <PeopleIcon /> NFT Requests
         </p>
       </Link>
     </div>

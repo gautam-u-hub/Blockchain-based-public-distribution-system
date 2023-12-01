@@ -30,16 +30,11 @@ const Home = () => {
 
           <div className="banner">
             <p>Welcome to Blockchain Based Public Distribution System</p>
-            <h1>FIND AMAZING PRODUCTS BELOW</h1>
 
-            <a href="#container">
-              <button>
-                Scroll 
-              </button>
-            </a>
+            
           </div>
 
-          <h2 className="homeHeading">Featured Products</h2>
+          <h2 className="homeHeading">Commodities:</h2>
 
           <div className="container" id="container">
             {products &&

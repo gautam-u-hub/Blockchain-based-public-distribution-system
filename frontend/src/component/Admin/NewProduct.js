@@ -52,6 +52,16 @@ const NewProduct = ({ history }) => {
     images.forEach((image) => {
       myForm.append("images", image);
     });
+    if (Stock >= 1001||Stock<=0) {
+      alert.error("Invalid Stock");
+      return;
+    }
+    if (price < 0||price>=1001) {
+      alert.error("Invalid Price");
+      return;
+    }
+   
+
     dispatch(createProduct(myForm));
   };
 
@@ -77,7 +87,7 @@ const NewProduct = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title="Create Product" />
+      <MetaData title="Create a New Commodity:- " />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
@@ -86,7 +96,7 @@ const NewProduct = ({ history }) => {
             encType="multipart/form-data"
             onSubmit={createProductSubmitHandler}
           >
-            <h1>Create Product</h1>
+            <h1>Create a New Commodity:-</h1>
 
             <div>
               <input
@@ -106,7 +116,6 @@ const NewProduct = ({ history }) => {
             </div>
 
             <div>
-
               <textarea
                 placeholder="Product Description"
                 value={description}
@@ -115,8 +124,6 @@ const NewProduct = ({ history }) => {
                 rows="1"
               ></textarea>
             </div>
-
-            
 
             <div>
               <input
